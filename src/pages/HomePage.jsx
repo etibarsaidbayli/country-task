@@ -4,12 +4,7 @@ import CountryItem from "../components/CountryItem";
 
 
 function HomePage({countries}) {
-
-    
-
-
   return (
-
       <div className="container">
         <Header />
         <main>
@@ -22,7 +17,7 @@ function HomePage({countries}) {
           </ul>
         </main>
       </div>
-   
+
   );
 }
 

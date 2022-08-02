@@ -5,7 +5,7 @@ function CountryItem({ name }) {
     <li className="country-item">
       {name}
       <div className="country-item__btns">
-        <Link to="/addCity">
+        <Link to={`/addCity/${name}`}>
           <button className="add-city">Sheher elave Et</button>
         </Link>
         <Link to={`showCities/${name}`}>

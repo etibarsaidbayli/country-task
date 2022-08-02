@@ -22,13 +22,16 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage countries={countries} />} />
-      <Route path="/addCity" element={<AddCity countries={countries} />} />
+      <Route
+        path="/addCity/:countryName"
+        element={<AddCity countries={countries} />}
+      />
       <Route
         path="/showCities/:countryName"
         element={<ShowCities countries={countries} />}
       />
       <Route
-        path="/showCities/:countryName/editCity"
+        path="/showCities/:countryName/editCity/:cityId"
         element={<EditCity countries={countries} />}
       />
     </Routes>

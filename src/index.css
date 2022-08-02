@@ -16,7 +16,7 @@ a {
 }
 
 body {
-  background: teal;
+  background: #eee;
 }
 
 html {
@@ -26,22 +26,31 @@ html {
 .container {
   width: 1200px;
   margin: 0 auto;
-  background: rgb(144, 134, 134);
 }
 
 /* header component style's */
 
 header {
   padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 42px;
 }
 
 header a {
   font-size: 3.2rem;
   cursor: pointer;
+  color: #000;
 }
 
 .main__countries-list {
   padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 96%;
+  justify-content: center;
 }
 
 /* country components styles */
@@ -51,74 +60,143 @@ header a {
   justify-content: space-between;
   align-items: center;
   font-size: 2.8rem;
-  background: rgb(217, 187, 187);
   margin-bottom: 30px;
+  width: 30%;
+  border-radius: 20px;
+  padding: 10px 5px;
+  background-color: #fff;
 }
 
 .country-item__btns {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .add-city,
 .show-cities {
-  width: 150px;
+  width: 120px;
   padding: 5px 0;
   font-family: inherit;
   font-size: 1.4rem;
   cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
 }
 
 /* addCity pages class here */
 
-form {
+.addCity__form {
   height: 50vh;
-  background: beige;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
+  width: 96%;
+  margin: 0 auto;
+  border-radius: 10px;
 }
-
 
 .form__sucsess {
   font-size: 3rem;
-  background: red;
   transform: translateY(-150px);
-  transform: .3s;
+  transform: 0.3s;
   visibility: hidden;
   opacity: 0;
-
 }
 
 .form__sucsess-open {
-  transform: translateY(20px) !important;
+  transform: translateY(5px) !important;
   visibility: visible !important;
   opacity: 1 !important;
-  background-color: blue;
+  background-color: #000;
   font-size: 3rem;
   text-align: center;
-  padding:10px 0;
-  color:#fff;
+  padding: 10px 0;
+  color: #fff;
+  width: 96%;
+  margin: 0 auto;
 }
 .form__label {
   font-size: 2.2rem;
 }
 
-.form__inputText {
-}
-
 .form__addBtn {
-  width: 150px;
+  width: 120px;
   padding: 5px 0;
   font-family: inherit;
   font-size: 1.4rem;
   cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
 }
 
+.form__select {
+  padding: 3px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.form__inputText {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 0;
+}
+
+.form__inputText::placeholder {
+  color: #fff;
+  opacity: 0.75;
+}
+
+/* showCities pages styles here */
+
+.showCities {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 93%;
+  margin: 0 auto;
+
+} 
 
 
-.show__city-p {
-  font-size: 3rem;
+
+.showCities__name {
+  font-size: 2.8rem;
+  color: #000;
+  background: #eee;
+}
+
+.showCities__items {
+  padding: 15px 0;
+  display: flex;
+  gap:15px;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.showCities__p{
+  font-size: 2.4rem;
+}
+
+.showCities__btn-delete, .showCities__btn-edit {
+  width: 120px;
+  padding: 5px 0;
+  font-family: inherit;
+  font-size: 1.4rem;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.showCities__btns {
+  display: flex;
+  gap:10px;
 }

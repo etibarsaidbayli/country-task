@@ -1,28 +1,29 @@
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 function EditCity({ countries }) {
-  let { countryName } = useParams();
+  let { countryName, cityId } = useParams();
 
   const [editCity, setEditCity] = useState({
     city: "",
     country: countryName,
-    // id: countries.findIndex((a) => a.name === countryName) + 1, burda cities arraydan gelen indexnen eyni olmalidi... cities de showCities dedi onu da ordan cixardib App a sala bilmirem her shey dagilir ...
   });
-
-  console.log(editCity);
+  const [editSucsess,setEditSucsess] = useState(false)
 
   const handleInputChange = (event) => {
     setEditCity({ ...editCity, [event.target.name]: event.target.value });
+    setEditSucsess(false)
   };
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    handleEditCity(editCity.id);
+    handleEditCity();
+    setEditSucsess(true)
   };
 
-  const handleEditCity = (id) => {
-    fetch(`http://localhost:7700/cities/${id}`, {
+  const handleEditCity = () => {
+    fetch(`http://localhost:7700/cities/${cityId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -31,11 +32,25 @@ function EditCity({ countries }) {
     });
   };
 
+  useEffect(() => {
+    fetch(`http://localhost:7700/cities/${cityId}`)
+      .then((r) => r.json())
+      .then((city) => {
+        setEditCity(city);
+      });
+  }, []);
+
   return (
     <div className="container">
       <Header />
-
-      <form onSubmit={handleSubmitForm} autoComplete="off">
+      <div className={editSucsess ? "form__sucsess-open " : "form__sucsess"}>
+        <h5>Deyishilikler ugurlar elave olundu!</h5>
+      </div>
+      <form
+        className="addCity__form"
+        onSubmit={handleSubmitForm}
+        autoComplete="off"
+      >
         <label className="form__label" htmlFor="countries">
           Olkeni sechin:
         </label>
@@ -58,6 +73,7 @@ function EditCity({ countries }) {
           className="form__inputText"
           type="text"
           placeholder="sheheri elave et"
+          value={editCity.city}
         />
         <button className="form__addBtn">Edit</button>
       </form>

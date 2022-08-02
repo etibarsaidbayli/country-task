@@ -28,25 +28,31 @@ function ShowCities() {
 
   return (
     <div className="container">
-      <Header />
-      <h1>{countryName}</h1>
-      {cities.length === 0 ? (
-        <p className="show__city-p">
+      <Header />  
+      <div className="showCities">
+        <h1 className="showCities__name">{countryName}</h1>
+
+            {cities.length === 0 ? (
+        <p className="showCities__p">
           Heleki bu olkeye sheher elave etmemisiniz !
         </p>
       ) : (
         cities.map((city) => (
-          <div key={city.id}>
-            <p className="show__city-p">Elave etdiyiniz sheher : {city.city}</p>
-            <div className="show__cities-btns">
-              <button onClick={() => handleDelete(city.id)}>Delete</button>
-              <Link to={`/showCities/${countryName}/editCity`}>
-                <button>Edit</button>
+          <div className="showCities__items" key={city.id}>
+            <p className="showCities__p">Elave etdiyiniz sheher : {city.city}</p>
+            <div className="showCities__btns">
+              <button className="showCities__btn-delete" onClick={() => handleDelete(city.id)}>Delete</button>
+              <Link to={`/showCities/${countryName}/editCity/${city.id}`}>
+                <button className="showCities__btn-edit">Edit</button>
               </Link>
             </div>
           </div>
         ))
       )}
+   
+      
+      </div>
+    
     </div>
   );
 }
