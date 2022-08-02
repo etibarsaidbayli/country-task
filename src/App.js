@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import HomePage from "./pages/HomePage";
+import AddCity from './pages/AddCity'
+import {Routes,Route} from 'react-router-dom'
+import ShowCities from './pages/ShowCities'
+import {useState,useEffect} from 'react'
+
+
+
 
 function App() {
+
+  const [countries,setCountries] = useState([])
+
+
+  useEffect(() => {
+      const getData = async () => {
+          let data=await fetch(' http://localhost:7700/countries').then(response=>response.json())
+          setCountries(data)
+          
+      }
+      getData()
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage
+      countries={countries}
+      />}/> 
+      <Route path="/addCity" element={<AddCity
+      countries={countries}
+      />}/> 
+      <Route path="/showCities/:countryName" element={<ShowCities
+       countries={countries}
+      
+      />}/>
+    </Routes>
   );
 }
 
