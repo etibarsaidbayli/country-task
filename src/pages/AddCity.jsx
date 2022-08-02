@@ -24,7 +24,7 @@ function AddCity({ countries }) {
         body:JSON.stringify(newCity)
     })
     setSucsess(true)
-   
+    
   };
  
 
