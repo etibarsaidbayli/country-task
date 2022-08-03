@@ -979,44 +979,29 @@
   ],
   "cities": [
     {
-      "city": "argetina city",
-      "country": "Argentina",
+      "city": "111",
+      "country": "Albania",
       "id": 1
     },
     {
-      "city": "1111",
-      "country": "Algeria",
+      "city": "121212",
+      "country": "land Islands",
       "id": 2
     },
     {
-      "city": "asasasas",
-      "country": "Albania",
+      "city": "121212",
+      "country": "land Islands",
+      "id": 3
+    },
+    {
+      "city": "131313",
+      "country": "land Islands",
       "id": 4
     },
     {
-      "city": "aaaaaa",
-      "country": "Algeria",
+      "city": "1441414",
+      "country": "land Islands",
       "id": 5
-    },
-    {
-      "city": "111",
-      "country": "AndorrA",
-      "id": 6
-    },
-    {
-      "city": "111",
-      "country": "Albania",
-      "id": 7
-    },
-    {
-      "city": "111aa",
-      "country": "Albania",
-      "id": 8
-    },
-    {
-      "city": "2223",
-      "country": "Albania",
-      "id": 9
     }
   ]
 }

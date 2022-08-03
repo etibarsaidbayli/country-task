@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 
 import { useState, useEffect } from "react";
+ 
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -31,30 +32,29 @@ function ShowCities() {
       <Header />  
       <div className="showCities">
         <h1 className="showCities__name">{countryName}</h1>
-
             {cities.length === 0 ? (
         <p className="showCities__p">
-          Heleki bu olkeye sheher elave etmemisiniz !
+          Heleki {countryName} olkesine sheher elave olunmayib !
         </p>
       ) : (
         cities.map((city) => (
           <div className="showCities__items" key={city.id}>
             <p className="showCities__p">Elave etdiyiniz sheher : {city.city}</p>
             <div className="showCities__btns">
-              <button className="showCities__btn-delete" onClick={() => handleDelete(city.id)}>Delete</button>
+              <button className="showCities__btn-delete" onClick={() => handleDelete(city.id)}>Sil</button>
               <Link to={`/showCities/${countryName}/editCity/${city.id}`}>
-                <button className="showCities__btn-edit">Edit</button>
+                <button className="showCities__btn-edit">Redakte et</button>
               </Link>
             </div>
           </div>
         ))
       )}
-   
-      
       </div>
-    
     </div>
   );
 }
-
 export default ShowCities;
+
+
+
+

@@ -1,8 +1,6 @@
 import Header from "../components/Header";
 import CountryItem from "../components/CountryItem";
 
-
-
 function HomePage({countries}) {
   return (
       <div className="container">
@@ -17,7 +15,6 @@ function HomePage({countries}) {
           </ul>
         </main>
       </div>
-
   );
 }
 

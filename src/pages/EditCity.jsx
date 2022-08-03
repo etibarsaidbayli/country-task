@@ -1,25 +1,27 @@
 import Header from "../components/Header";
+
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function EditCity({ countries }) {
   let { countryName, cityId } = useParams();
 
+  console.log(countryName)
   const [editCity, setEditCity] = useState({
     city: "",
     country: countryName,
   });
-  const [editSucsess,setEditSucsess] = useState(false)
+  const [editSucsess, setEditSucsess] = useState(false);
 
   const handleInputChange = (event) => {
     setEditCity({ ...editCity, [event.target.name]: event.target.value });
-    setEditSucsess(false)
+    setEditSucsess(false);
   };
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
     handleEditCity();
-    setEditSucsess(true)
+    setEditSucsess(true);
   };
 
   const handleEditCity = () => {
@@ -60,6 +62,7 @@ function EditCity({ countries }) {
           name="country"
           id="countries"
           form="countriesForm"
+          className="form__select"
         >
           {countries.map((country) => (
             <option key={country.code} value={country.name}>
@@ -75,7 +78,10 @@ function EditCity({ countries }) {
           placeholder="sheheri elave et"
           value={editCity.city}
         />
-        <button className="form__addBtn">Edit</button>
+        <button disabled={!editCity.city} className="form__addBtn">
+          Redakte et
+        </button>
+        
       </form>
     </div>
   );

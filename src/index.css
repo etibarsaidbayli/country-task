@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,12 +14,26 @@ a {
   text-decoration: none;
 }
 
-body {
-  background: #eee;
-}
+
 
 html {
   font-size: 10px;
+}
+
+html[data-theme="dark"] {
+  --bgColor1: #202c36;
+  --color1: #fff;
+  --bgBoxColor1: #808080;
+}
+
+html[data-theme="light"] {
+  --bgColor1: #eee;
+  --color1: #000;
+  --bgBoxColor1: #fff;
+}
+
+body {
+  background: var(--bgColor1);
 }
 
 .container {
@@ -28,20 +41,26 @@ html {
   margin: 0 auto;
 }
 
-/* header component style's */
+/* header component style's here */
 
 header {
   padding: 20px 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  margin-left: 42px;
 }
 
 header a {
   font-size: 3.2rem;
   cursor: pointer;
-  color: #000;
+  color: var(--color1);
+}
+
+.header__mode {
+  font-size: 1.5rem;
+  color: var(--color1);
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .main__countries-list {
@@ -49,11 +68,10 @@ header a {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  width: 96%;
   justify-content: center;
 }
 
-/* country components styles */
+/* country components styles here*/
 
 .country-item {
   display: flex;
@@ -64,7 +82,7 @@ header a {
   width: 30%;
   border-radius: 20px;
   padding: 10px 5px;
-  background-color: #fff;
+  background-color: var(--bgBoxColor1);
 }
 
 .country-item__btns {
@@ -89,12 +107,11 @@ header a {
 
 .addCity__form {
   height: 50vh;
-  background-color: #fff;
+  background-color: var(--bgBoxColor1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 96%;
   margin: 0 auto;
   border-radius: 10px;
 }
@@ -116,11 +133,12 @@ header a {
   text-align: center;
   padding: 10px 0;
   color: #fff;
-  width: 96%;
   margin: 0 auto;
 }
+
 .form__label {
   font-size: 2.2rem;
+  color: var(--color1);
 }
 
 .form__addBtn {
@@ -136,13 +154,13 @@ header a {
 
 .form__select {
   padding: 3px 0;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bgColor1);
+  color: var(--color1);
 }
 
 .form__inputText {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bgColor1);
+  color: var(--color1);
   padding: 3px 0;
 }
 
@@ -154,38 +172,40 @@ header a {
 /* showCities pages styles here */
 
 .showCities {
-  background: #fff;
+  background: var(--bgColor1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   width: 93%;
   margin: 0 auto;
-
-} 
-
-
+}
 
 .showCities__name {
   font-size: 2.8rem;
-  color: #000;
-  background: #eee;
+  background: var(--bgColor1);
+  color: var(--color1);
+  text-align: center;
 }
 
 .showCities__items {
   padding: 15px 0;
   display: flex;
-  gap:15px;
+  gap: 15px;
   justify-content: space-between;
   align-items: center;
-  
+  background-color: var(--bgBoxColor1);
 }
 
-.showCities__p{
+.showCities__p {
   font-size: 2.4rem;
+  color: var(--color1);
+  text-align: center;
+
 }
 
-.showCities__btn-delete, .showCities__btn-edit {
+.showCities__btn-delete,
+.showCities__btn-edit {
   width: 120px;
   padding: 5px 0;
   font-family: inherit;
@@ -198,5 +218,143 @@ header a {
 
 .showCities__btns {
   display: flex;
-  gap:10px;
+  gap: 10px;
+}
+
+/* !!! */
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+  color: var(--color1);
+}
+
+/* responsive  style's start here */
+
+@media (min-width: 1200px) and (max-width: 1450px) {
+ 
+  .container {
+    width: 1150px;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1200px) {
+ 
+  .container {
+    width: 1030px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1050px) {
+  html {
+    font-size: 9px;
+  }
+  
+  .container {
+    width: 950px;
+  }
+  .country-item {
+    flex-direction: column;
+  }
+  .country-item__btns {
+    gap: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+ 
+  html{
+    font-size: 9px;
+  }
+  
+  .container {
+    width: 740px;
+  }
+  
+  .country-item {
+    flex-direction: column;
+  }
+  .country-item__btns {
+    gap: 0;
+  }
+  .showCities__items {
+    flex-direction: column;
+  }
+  .addCity__form {
+    flex-direction: column;
+  }
+  .form__select {
+    width: 300px;
+  }
+  .form__inputText {
+    width: 300px;
+  }
+
+  .form__addBtn {
+    width: 300px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  html{
+    font-size: 8px;
+  }
+  
+
+  .container {
+    width: 550px;
+  }
+  .main__countries-list {
+    flex-direction: column;
+  }
+  .country-item {
+    width: 100%;
+  }
+  .showCities__items {
+    flex-direction: column;
+  }
+  .addCity__form {
+    flex-direction: column;
+  }
+  .form__select {
+    width: 300px;
+  }
+  .form__inputText {
+    width: 300px;
+  }
+
+  .form__addBtn {
+    width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  html{
+    font-size: 7px;
+  }
+ 
+  .container {
+    width: 400px;
+  }
+  .main__countries-list {
+    flex-direction: column;
+  }
+  .country-item {
+    width: 100%;
+  }
+  .showCities__items {
+    flex-direction: column;
+  }
+  .addCity__form {
+    flex-direction: column;
+  }
+  .form__select {
+    width: 200px;
+  }
+  .form__inputText {
+    width: 200px;
+  }
+
+  .form__addBtn {
+    width: 200px;
+  }
 }

@@ -1,19 +1,22 @@
 import Header from "../components/Header";
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function AddCity({ countries }) {
   const { countryName } = useParams();
+
   const [newCity, setNewCity] = useState({
     city: "",
     country: countryName || "",
   });
   const [sucsess, setSucsess] = useState(false);
-
+  
   const handleInput = (event) => {
     setNewCity({ ...newCity, [event.target.name]: event.target.value });
-    setSucsess(false)
+    setSucsess(false);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch(" http://localhost:7700/cities", {
@@ -46,6 +49,7 @@ function AddCity({ countries }) {
           className="form__select"
           id="countries"
           form="countriesForm"
+          value={newCity.country}
         >
           {countries.map((country) => (
             <option key={country.code} value={country.name}>
@@ -60,7 +64,9 @@ function AddCity({ countries }) {
           type="text"
           placeholder="sheheri elave edin"
         />
-        <button className="form__addBtn">Elave edin</button>
+        <button disabled={!newCity.city} className="form__addBtn">
+          Elave et
+        </button>
       </form>
     </div>
   );

@@ -18,7 +18,7 @@ function App() {
     };
     getData();
   }, []);
-
+   
   return (
     <Routes>
       <Route path="/" element={<HomePage countries={countries} />} />
