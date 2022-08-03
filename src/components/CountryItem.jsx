@@ -6,10 +6,10 @@ function CountryItem({ name }) {
       {name}
       <div className="country-item__btns">
         <Link to={`/addCity/${name}`}>
-          <button className="add-city">Sheher elave Et</button>
+          <button className="add-city">Şəhər əlavə et</button>
         </Link>
         <Link to={`showCities/${name}`}>
-          <button className="show-cities">Sheherleri Goster</button>
+          <button className="show-cities">Şəhərləri Göstər</button>
         </Link>
       </div>
     </li>

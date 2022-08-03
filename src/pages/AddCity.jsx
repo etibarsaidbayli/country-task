@@ -33,7 +33,7 @@ function AddCity({ countries }) {
     <div className="container">
       <Header />
       <div className={sucsess ? "form__sucsess-open " : "form__sucsess"}>
-        <h5>Secdiyiniz olkeye dahil etdiyiniz sheher elave olundu !</h5>
+        <h5>Seçdiyiniz ölkəyə dahil etdiyiniz şəhər əlavə edildi !</h5>
       </div>
       <form
         className="addCity__form"
@@ -41,7 +41,7 @@ function AddCity({ countries }) {
         onSubmit={handleSubmit}
       >
         <label className="form__label" htmlFor="countries">
-          Olkeni sechin:
+          Ölkəni seçin:
         </label>
         <select
           onChange={handleInput}
@@ -62,10 +62,10 @@ function AddCity({ countries }) {
           name="city"
           className="form__inputText"
           type="text"
-          placeholder="sheheri elave edin"
+          placeholder="şəhər adı"
         />
         <button disabled={!newCity.city} className="form__addBtn">
-          Elave et
+          Əlavə et
         </button>
       </form>
     </div>

@@ -37,20 +37,20 @@ function ShowCities() {
         <h1 className="showCities__name">{countryName}</h1>
         {cities.length === 0 ? (
           <p className="showCities__p">
-            Heleki {countryName} olkesine sheher elave olunmayib !
+            Hələki {countryName} ölkəsinə şəhər əlavə edilməyib !
           </p>
         ) : (
           cities.map((city) => (
             <div className="showCities__items" key={city.id}>
               <p className="showCities__p">
-                Elave etdiyiniz sheher : {city.city}
+                Əlavə etdiyiniz şəhər :  {city.city}
               </p>
               <div className="showCities__btns">
                 <button className="showCities__btn-delete" onClick={() => handleDelete(city.id)}>
                   Sil
                 </button>
                 <Link to={`/showCities/${countryName}/editCity/${city.id}`}>
-                  <button className="showCities__btn-edit">Redakte et</button>
+                  <button className="showCities__btn-edit">Redaktə et</button>
                 </Link>
               </div>
             </div>

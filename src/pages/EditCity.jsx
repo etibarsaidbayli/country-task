@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 function EditCity({ countries }) {
   let { countryName, cityId } = useParams();
 
-  console.log(countryName)
+
   const [editCity, setEditCity] = useState({
     city: "",
     country: countryName,
@@ -46,7 +46,7 @@ function EditCity({ countries }) {
     <div className="container">
       <Header />
       <div className={editSucsess ? "form__sucsess-open " : "form__sucsess"}>
-        <h5>Deyishilikler ugurlar elave olundu!</h5>
+        <h5>Dəyişiliklər uğurla əlavə olundu!</h5>
       </div>
       <form
         className="addCity__form"
@@ -54,7 +54,7 @@ function EditCity({ countries }) {
         autoComplete="off"
       >
         <label className="form__label" htmlFor="countries">
-          Olkeni sechin:
+          Ölkəni seçin:
         </label>
         <select
           defaultValue={countryName}
@@ -79,7 +79,7 @@ function EditCity({ countries }) {
           value={editCity.city}
         />
         <button disabled={!editCity.city} className="form__addBtn">
-          Redakte et
+          Redaktə et
         </button>
         
       </form>
