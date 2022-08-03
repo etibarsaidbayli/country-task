@@ -977,31 +977,5 @@
       "code": "ZW"
     }
   ],
-  "cities": [
-    {
-      "city": "111",
-      "country": "Albania",
-      "id": 1
-    },
-    {
-      "city": "121212",
-      "country": "land Islands",
-      "id": 2
-    },
-    {
-      "city": "121212",
-      "country": "land Islands",
-      "id": 3
-    },
-    {
-      "city": "131313",
-      "country": "land Islands",
-      "id": 4
-    },
-    {
-      "city": "1441414",
-      "country": "land Islands",
-      "id": 5
-    }
-  ]
+  "cities": []
 }
