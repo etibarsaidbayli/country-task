@@ -78,7 +78,7 @@ function EditCity({ countries }) {
           placeholder="sheheri elave et"
           value={editCity.city}
         />
-        <button disabled={!editCity.city} className="form__addBtn">
+        <button disabled={!editCity.city || !editCity.city.trim()} className="form__addBtn">
           Redaktə et
         </button>
         

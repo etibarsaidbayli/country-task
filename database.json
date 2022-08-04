@@ -977,11 +977,5 @@
       "code": "ZW"
     }
   ],
-  "cities": [
-    {
-      "city": "   1",
-      "country": "land Islands",
-      "id": 1
-    }
-  ]
+  "cities": []
 }
