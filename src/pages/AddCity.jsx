@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 
 import { useState } from "react";
+
 import { useParams } from "react-router-dom";
 
 function AddCity({ countries }) {
@@ -11,7 +12,7 @@ function AddCity({ countries }) {
     country: countryName || "",
   });
   const [sucsess, setSucsess] = useState(false);
-  
+
   const handleInput = (event) => {
     setNewCity({ ...newCity, [event.target.name]: event.target.value });
     setSucsess(false);
@@ -64,7 +65,10 @@ function AddCity({ countries }) {
           type="text"
           placeholder="şəhər adı"
         />
-        <button disabled={!newCity.city} className="form__addBtn">
+        <button
+          disabled={!newCity.city || !newCity.city.trim()}
+          className="form__addBtn"
+        >
           Əlavə et
         </button>
       </form>
